@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2xxta3maooio"]
 
-[ext_resource type="Texture2D" uid="uid://8a58td5t0qvd" path="res://assets/ui/sbluelide_hangle.svg" id="1_24ij4"]
+[ext_resource type="Texture2D" uid="uid://8a58td5t0qvd" path="res://assets/ui/blue_slide_hangle.svg" id="1_24ij4"]
 [ext_resource type="Texture2D" uid="uid://d3xur4pw8dvy8" path="res://assets/ui/check_round_color.svg" id="2_mhkcm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2jh2"]

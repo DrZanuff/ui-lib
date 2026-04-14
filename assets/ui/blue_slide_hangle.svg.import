@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://big54eudvg14a"
-path="res://.godot/imported/slide_horizontal_grey.svg-a4bc3aad04164ec67e13aa95b74426a1.ctex"
+uid="uid://8a58td5t0qvd"
+path="res://.godot/imported/blue_slide_hangle.svg-8fcdde9d0744ddcd6af3591aa6228260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/slide_horizontal_grey.svg"
-dest_files=["res://.godot/imported/slide_horizontal_grey.svg-a4bc3aad04164ec67e13aa95b74426a1.ctex"]
+source_file="res://assets/ui/blue_slide_hangle.svg"
+dest_files=["res://.godot/imported/blue_slide_hangle.svg-8fcdde9d0744ddcd6af3591aa6228260.ctex"]
 
 [params]
 
