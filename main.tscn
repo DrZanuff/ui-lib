@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://cexb00godanh6"]
 
 [ext_resource type="PackedScene" uid="uid://b8a2x30q04dd1" path="res://scenes/blue_button.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bpn38v4dbjjqv" path="res://scenes/window_panel.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://xtoq0v5ynypn" path="res://scenes/grey_button.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bfisleeg3kh3e" path="res://scenes/input_field.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://s473uecx5ggt" path="res://assets/ui/icon_arrow_left.svg" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://d0vmudv87ro52" path="res://assets/ui/icon_arrow_right.svg" id="6_272bh"]
@@ -11,6 +9,27 @@
 [ext_resource type="PackedScene" uid="uid://dab7hsfefuwi2" path="res://scenes/close_button.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://wtl6sug30srs" path="res://scenes/accept_button.tscn" id="10_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dwinbf5fmn0h8" path="res://assets/ui/icon_checkmark.svg" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bjkxukigi7mng" path="res://assets/images/photo.png" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c8d8g1irl15d8" path="res://scenes/components/tab-component/tab-component.tscn" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://crassnlpvhgs1" path="res://scenes/components/tab-component/tab-element.gd" id="13_w48qg"]
+
+[sub_resource type="Resource" id="Resource_vivmo"]
+script = ExtResource("13_w48qg")
+tab_name = "Main"
+tab_content = NodePath("MainTab")
+metadata/_custom_type_script = "uid://crassnlpvhgs1"
+
+[sub_resource type="Resource" id="Resource_ycdy4"]
+script = ExtResource("13_w48qg")
+tab_name = "Contact"
+tab_content = NodePath("ContactTab")
+metadata/_custom_type_script = "uid://crassnlpvhgs1"
+
+[sub_resource type="Resource" id="Resource_w48qg"]
+script = ExtResource("13_w48qg")
+tab_name = "Photo"
+tab_content = NodePath("PhotoTab")
+metadata/_custom_type_script = "uid://crassnlpvhgs1"
 
 [sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
 font_size = 18
@@ -38,67 +57,36 @@ color = Color(0.21176471, 0.58431375, 0.84313726, 1)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1308802434]
-custom_minimum_size = Vector2(380, 500)
+custom_minimum_size = Vector2(380, 550)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer" unique_id=1192655928]
+[node name="TabComponent" parent="CenterContainer/MarginContainer" unique_id=1240344262 instance=ExtResource("12_ycdy4")]
 layout_mode = 2
-theme_override_constants/separation = -9
+tabs = Array[ExtResource("13_w48qg")]([SubResource("Resource_vivmo"), SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
 
-[node name="TabContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=1696298064]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=188152232]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="BlueButton" parent="CenterContainer/MarginContainer/VBoxContainer/TabContainer/HBoxContainer" unique_id=144958498 instance=ExtResource("1_0xm2m")]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-text = "Tab"
-
-[node name="GreyButton" parent="CenterContainer/MarginContainer/VBoxContainer/TabContainer/HBoxContainer" unique_id=326425166 instance=ExtResource("2_h2yge")]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-text = "Tab"
-
-[node name="GreyButton2" parent="CenterContainer/MarginContainer/VBoxContainer/TabContainer/HBoxContainer" unique_id=1853555281 instance=ExtResource("2_h2yge")]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-text = "Tab"
-
-[node name="WindowContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer" unique_id=2008861591]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="WindowPanel" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer" unique_id=2044609350 instance=ExtResource("1_ig7tw")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel" unique_id=1195439927]
+[node name="MainTab" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent" unique_id=1571302201]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 22
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer" unique_id=1550696104]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab" unique_id=1055439603]
 layout_mode = 2
 
-[node name="Section1" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer" unique_id=1195237090]
+[node name="Section1" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer" unique_id=1943281874]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1" unique_id=549760269]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1" unique_id=52829917]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer" unique_id=651229013]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer" unique_id=698403905]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer" unique_id=1348605077]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer" unique_id=2082855994]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -107,18 +95,18 @@ theme_override_font_sizes/font_size = 20
 text = "Name"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="LineEdit" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer" unique_id=1069438778 instance=ExtResource("4_1bvp3")]
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer" unique_id=716533583 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ""
 placeholder_text = "User"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer" unique_id=1077116845]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer" unique_id=870764326]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2" unique_id=1269837850]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2" unique_id=35152485]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -127,20 +115,20 @@ theme_override_font_sizes/font_size = 20
 text = "Stepper"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2" unique_id=1094920624]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2" unique_id=958942992]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1781996881]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=873685217]
 layout_mode = 2
 
-[node name="BlueButton" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=1135328625 instance=ExtResource("1_0xm2m")]
+[node name="BlueButton" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=402475537 instance=ExtResource("1_0xm2m")]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 text = ""
 icon = ExtResource("5_7mycd")
 
-[node name="LineEdit" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=725527696 instance=ExtResource("4_1bvp3")]
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=399690444 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1/1"
@@ -148,19 +136,19 @@ placeholder_text = "User"
 alignment = 1
 editable = false
 
-[node name="BlueButton2" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=1746794720 instance=ExtResource("1_0xm2m")]
+[node name="BlueButton2" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer" unique_id=1982422088 instance=ExtResource("1_0xm2m")]
 show_behind_parent = true
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 text = ""
 icon = ExtResource("6_272bh")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer" unique_id=648268567]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer" unique_id=2108081047]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer3" unique_id=1629437298]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer3" unique_id=835771164]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -169,57 +157,57 @@ theme_override_font_sizes/font_size = 20
 text = "Checkbox"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer3" unique_id=1096404307]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer3" unique_id=2129255946]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = -8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer3/MarginContainer" unique_id=1044514037]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer3/MarginContainer" unique_id=1468356819]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section1/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=341912345 instance=ExtResource("7_272bh")]
+[node name="CheckBox" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section1/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=1488007660 instance=ExtResource("7_272bh")]
 custom_minimum_size = Vector2(40, 32)
 layout_mode = 2
 
-[node name="Section2" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer" unique_id=778683536]
+[node name="Section2" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer" unique_id=120799278]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section2" unique_id=1235364613]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section2" unique_id=659783233]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="LineEdit" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section2/MarginContainer" unique_id=1120054444 instance=ExtResource("4_1bvp3")]
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section2/MarginContainer" unique_id=925311692 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
 text = ""
 placeholder_text = "List selection"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section2/MarginContainer" unique_id=2078979872]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section2/MarginContainer" unique_id=2088777613]
 layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section2/MarginContainer/HBoxContainer" unique_id=462259268]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section2/MarginContainer/HBoxContainer" unique_id=1963809757]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DropDownButton" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section2/MarginContainer/HBoxContainer/MarginContainer" unique_id=1900363288 instance=ExtResource("8_5vw27")]
+[node name="DropDownButton" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section2/MarginContainer/HBoxContainer/MarginContainer" unique_id=1065159446 instance=ExtResource("8_5vw27")]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 
-[node name="Section3" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer" unique_id=1978187494]
+[node name="Section3" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer" unique_id=1650720442]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3" unique_id=1951651376]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3" unique_id=44756658]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer" unique_id=396339317]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer" unique_id=1544014449]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -228,23 +216,23 @@ theme_override_font_sizes/font_size = 20
 text = "Sliders"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="Slider1" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer" unique_id=847272785]
+[node name="Slider1" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer" unique_id=816828036]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1" unique_id=2060868366]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1" unique_id=930832111]
 layout_mode = 2
 theme_override_constants/separation = -4
 
-[node name="HSlider" type="HSlider" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer" unique_id=62816604]
+[node name="HSlider" type="HSlider" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer" unique_id=944132574]
 layout_mode = 2
 value = 60.0
 tick_count = 2
 ticks_on_borders = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer" unique_id=834744654]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer" unique_id=217641272]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=908170501]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=1820579668]
 layout_mode = 2
 size_flags_stretch_ratio = 0.7
 theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
@@ -252,12 +240,12 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=93118105]
+[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=657358675]
 layout_mode = 2
 size_flags_horizontal = 3
 border_width = 0.0
 
-[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=1315122321]
+[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider1/VBoxContainer/HBoxContainer" unique_id=1724229194]
 layout_mode = 2
 size_flags_stretch_ratio = 0.7
 theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
@@ -265,15 +253,15 @@ theme_override_font_sizes/font_size = 20
 text = "100"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="Slider2" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer" unique_id=131089069]
+[node name="Slider2" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer" unique_id=1038455225]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2" unique_id=1178399279]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2" unique_id=1831413220]
 layout_mode = 2
 theme_override_constants/separation = -4
 
-[node name="HSlider" type="HSlider" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer" unique_id=417558203]
+[node name="HSlider" type="HSlider" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer" unique_id=1214775885]
 layout_mode = 2
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5vw27")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_kek77")
@@ -282,10 +270,10 @@ value = 25.0
 tick_count = 5
 ticks_on_borders = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer" unique_id=81407754]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer" unique_id=1997203253]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=1777442263]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=827768907]
 layout_mode = 2
 size_flags_stretch_ratio = 0.7
 theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
@@ -293,12 +281,12 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=1729449435]
+[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=1229669154]
 layout_mode = 2
 size_flags_horizontal = 3
 border_width = 0.0
 
-[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=447519402]
+[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section3/VBoxContainer/Slider2/VBoxContainer/HBoxContainer" unique_id=1901118120]
 layout_mode = 2
 size_flags_stretch_ratio = 0.7
 theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
@@ -306,25 +294,153 @@ theme_override_font_sizes/font_size = 20
 text = "100"
 label_settings = SubResource("LabelSettings_5vw27")
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer" unique_id=1839112474]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer" unique_id=1164370626]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_5vw27")
 
-[node name="Section4" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer" unique_id=1443088743]
+[node name="Section4" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer" unique_id=1048075280]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section4" unique_id=1757394673]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section4" unique_id=1241785395]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="CloseButton" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section4/HBoxContainer" unique_id=1076495450 instance=ExtResource("9_kek77")]
+[node name="CloseButton" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section4/HBoxContainer" unique_id=2089502420 instance=ExtResource("9_kek77")]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 
-[node name="AcceptButton" parent="CenterContainer/MarginContainer/VBoxContainer/WindowContainer/WindowPanel/MarginContainer/VBoxContainer/Section4/HBoxContainer" unique_id=2118991587 instance=ExtResource("10_efxa6")]
+[node name="AcceptButton" parent="CenterContainer/MarginContainer/TabComponent/MainTab/VBoxContainer/Section4/HBoxContainer" unique_id=872379866 instance=ExtResource("10_efxa6")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("11_dg77c")
+
+[node name="ContactTab" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent" unique_id=2138359964]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/ContactTab" unique_id=805995231]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer" unique_id=1730153476]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer" unique_id=1326483860]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+theme_override_font_sizes/font_size = 20
+text = "Phone"
+label_settings = SubResource("LabelSettings_5vw27")
+
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer" unique_id=551392263 instance=ExtResource("4_1bvp3")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+placeholder_text = "+55"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer" unique_id=948026250]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer2" unique_id=1883807935]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+theme_override_font_sizes/font_size = 20
+text = "Email"
+label_settings = SubResource("LabelSettings_5vw27")
+
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer2" unique_id=1346794121 instance=ExtResource("4_1bvp3")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+placeholder_text = "@"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer" unique_id=1608009759]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer3" unique_id=1807353311]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+theme_override_font_sizes/font_size = 20
+text = "Address 1"
+label_settings = SubResource("LabelSettings_5vw27")
+
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer3" unique_id=7304609 instance=ExtResource("4_1bvp3")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+placeholder_text = "Av."
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer" unique_id=730401946]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer4" unique_id=2039419108]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_colors/font_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+theme_override_font_sizes/font_size = 20
+text = "City"
+label_settings = SubResource("LabelSettings_5vw27")
+
+[node name="LineEdit" parent="CenterContainer/MarginContainer/TabComponent/ContactTab/VBoxContainer/HBoxContainer4" unique_id=1870659473 instance=ExtResource("4_1bvp3")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ""
+placeholder_text = "Redondo Beach"
+
+[node name="PhotoTab" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent" unique_id=1594932364]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab" unique_id=404023978]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer" unique_id=1057742782]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer/MarginContainer" unique_id=1584241146]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer/MarginContainer/CenterContainer" unique_id=1944470480]
+layout_mode = 2
+texture = ExtResource("12_dg77c")
+
+[node name="Section4" type="MarginContainer" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer" unique_id=1995481692]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer/Section4" unique_id=10400032]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="AcceptButton" parent="CenterContainer/MarginContainer/TabComponent/PhotoTab/VBoxContainer/Section4/HBoxContainer" unique_id=2118991587 instance=ExtResource("10_efxa6")]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("11_dg77c")

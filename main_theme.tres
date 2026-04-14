@@ -33,6 +33,14 @@ corner_radius_bottom_left = 5
 expand_margin_left = 8.0
 expand_margin_right = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0omi4"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.24705882)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5vw27"]
 color = Color(0.69965345, 0.69965345, 0.69965345, 1)
 
@@ -85,6 +93,9 @@ Button/styles/disabled = SubResource("StyleBoxFlat_ve5ma")
 Button/styles/hover = SubResource("StyleBoxFlat_tf2y2")
 Button/styles/normal = SubResource("StyleBoxEmpty_ve5ma")
 Button/styles/pressed = SubResource("StyleBoxFlat_twdgw")
+HScrollBar/constants/padding_bottom = 0
+HScrollBar/constants/padding_top = 0
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_0omi4")
 HSeparator/styles/separator = SubResource("StyleBoxLine_5vw27")
 HSlider/constants/grabber_offset = -2
 HSlider/constants/tick_offset = -12

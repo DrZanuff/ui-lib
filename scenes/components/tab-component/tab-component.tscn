@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c8d8g1irl15d8"]
+
+[ext_resource type="Script" uid="uid://k6yh4s7cw7oj" path="res://scenes/components/tab-component/tab_container.gd" id="1_qvr5m"]
+[ext_resource type="PackedScene" uid="uid://baydqfvgqggta" path="res://scenes/components/tab-component/tab-button.tscn" id="2_8xmpd"]
+[ext_resource type="PackedScene" uid="uid://bpn38v4dbjjqv" path="res://scenes/window_panel.tscn" id="3_fbst8"]
+
+[node name="TabComponent" type="MarginContainer" unique_id=174897077]
+anchors_preset = -1
+anchor_right = 0.3845486
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+script = ExtResource("1_qvr5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="TabMargin" type="MarginContainer" parent="." unique_id=180165505]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = -40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabMargin" unique_id=1192655928]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="TabContainer" type="MarginContainer" parent="TabMargin/VBoxContainer" unique_id=1696298064]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabMargin/VBoxContainer/TabContainer" unique_id=1252820249]
+layout_mode = 2
+
+[node name="TabsWrapper" type="HBoxContainer" parent="TabMargin/VBoxContainer/TabContainer/ScrollContainer" unique_id=188152232]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TabButton" parent="TabMargin/VBoxContainer/TabContainer/ScrollContainer/TabsWrapper" unique_id=1337583717 instance=ExtResource("2_8xmpd")]
+layout_mode = 2
+
+[node name="TabButton2" parent="TabMargin/VBoxContainer/TabContainer/ScrollContainer/TabsWrapper" unique_id=78404280 instance=ExtResource("2_8xmpd")]
+layout_mode = 2
+
+[node name="TabButton3" parent="TabMargin/VBoxContainer/TabContainer/ScrollContainer/TabsWrapper" unique_id=969422479 instance=ExtResource("2_8xmpd")]
+layout_mode = 2
+
+[node name="WindowContainer" type="MarginContainer" parent="TabMargin/VBoxContainer" unique_id=2008861591]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="WindowPanel" parent="TabMargin/VBoxContainer/WindowContainer" unique_id=2044609350 instance=ExtResource("3_fbst8")]
+layout_mode = 2
+mouse_filter = 2
