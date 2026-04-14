@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b0nmkmy54onec"]
+
+[ext_resource type="Texture2D" uid="uid://dwinbf5fmn0h8" path="res://assets/ui/icon_checkmark.svg" id="1_bdpfv"]
+[ext_resource type="Texture2D" uid="uid://bba6w80f4trrk" path="res://assets/ui/button_square_flat.svg" id="1_ug5jm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdpfv"]
+bg_color = Color(0, 0, 0, 0.16862746)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fih0"]
+bg_color = Color(0.9999998, 0.9167786, 0.74967754, 0.11764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0enwe"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="CheckBox" type="Button" unique_id=326425166]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bdpfv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4fih0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0enwe")
+icon = ExtResource("1_bdpfv")
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=278935546]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=652511940]
+layout_mode = 2
+texture = ExtResource("1_ug5jm")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 12

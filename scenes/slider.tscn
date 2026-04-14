@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d2xxta3maooio"]
+
+[ext_resource type="Texture2D" uid="uid://8a58td5t0qvd" path="res://assets/ui/sbluelide_hangle.svg" id="1_24ij4"]
+[ext_resource type="Texture2D" uid="uid://d3xur4pw8dvy8" path="res://assets/ui/check_round_color.svg" id="2_mhkcm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2jh2"]
+bg_color = Color(0.851769, 0.851769, 0.8517688, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.6901961, 0.6901961, 0.7294118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsijn"]
+bg_color = Color(0.10980392, 0.62352943, 0.84313726, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 4.0
+
+[node name="HSlider" type="HSlider" unique_id=1203795541]
+offset_left = 56.0
+offset_top = 142.0
+offset_right = 680.0
+offset_bottom = 158.0
+theme_override_constants/grabber_offset = -2
+theme_override_constants/tick_offset = -12
+theme_override_icons/grabber = ExtResource("1_24ij4")
+theme_override_icons/grabber_highlight = ExtResource("1_24ij4")
+theme_override_icons/grabber_disabled = ExtResource("1_24ij4")
+theme_override_icons/tick = ExtResource("2_mhkcm")
+theme_override_styles/slider = SubResource("StyleBoxFlat_c2jh2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xsijn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_xsijn")
+value = 50.0
+tick_count = 10

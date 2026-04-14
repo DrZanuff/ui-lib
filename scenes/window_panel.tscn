@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpn38v4dbjjqv"]
+
+[ext_resource type="Texture2D" uid="uid://cml1pys34igys" path="res://assets/ui/gray_button_square_depth_flat.svg" id="1_obh2s"]
+
+[node name="WindowPanel" type="MarginContainer" unique_id=2044609350]
+offset_right = 109.0
+offset_bottom = 129.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1620290054]
+layout_mode = 2
+texture = ExtResource("1_obh2s")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 12

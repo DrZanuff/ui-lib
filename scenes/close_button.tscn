@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dab7hsfefuwi2"]
+
+[ext_resource type="Texture2D" uid="uid://dj4buhkrmtv6x" path="res://assets/ui/icon_cross.svg" id="1_8jrnc"]
+[ext_resource type="Texture2D" uid="uid://cun30pijnwupo" path="res://assets/ui/red_button_square_depth_flat.svg" id="2_k3n1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sowgg"]
+bg_color = Color(0, 0, 0, 0.16862746)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_130g2"]
+bg_color = Color(0.9999998, 0.9167786, 0.74967754, 0.11764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxg0n"]
+bg_color = Color(0.29411766, 0.29411766, 0.29411766, 0.6784314)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfnx8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="CloseButton" type="Button" unique_id=1900363288]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sowgg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_130g2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xxg0n")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sfnx8")
+icon = ExtResource("1_8jrnc")
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=138200725]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=488743197]
+layout_mode = 2
+texture = ExtResource("2_k3n1t")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 12
